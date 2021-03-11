@@ -8,10 +8,17 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 import SelectionItem from './selectionItem';
 
 const useStyles = makeStyles({
+  close: {
+    position: 'fixed',
+    top: 12,
+    right: 0,
+    zIndex: 100
+  },
   list: {
     width: 250
   },
@@ -42,9 +49,13 @@ const SideDrawer = (props) => {
     <div
       className={clsx(classes.list)}
       role='presentation'
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
+      <Button
+        onClick={toggleDrawer(anchor, false)}
+        className={classes.close}
+      >
+        <CloseIcon />
+      </Button>
       <List>
         <ListItem button key='My Bet'>
           <ListItemText primary='My Bet' />
