@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import EventList from './../components/eventList';
-import { getEndPointData, setEventListData } from './../actions/event-actions';
+import { getEndPointData, setEventListData, addBetToCart, removeBetToCart } from './../actions/event-actions';
 
 const mapStateToProps = (state) => ({
-  eventListName: state.events.eventList
+  eventList: state.events.eventList,
+  cartList: state.carts.cart,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -13,6 +14,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getEventList: (json) => {
     dispatch(setEventListData(json))
+  },
+  addBetToCart: (eventId, gameId, gameName, price, optionName) => {
+    dispatch(addBetToCart(eventId, gameId, gameName, price, optionName))
+  },
+  removeBetToCart: (eventId, gameId, price) => {
+    dispatch(removeBetToCart(eventId, gameId, price))
   }
 });
 

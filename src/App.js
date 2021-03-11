@@ -1,12 +1,25 @@
 import './App.css';
-import MenuIcon from '@material-ui/icons/Menu';
+import { css, cx } from '@emotion/css';
+
+import SideDrawerContainer from './containers/sideDrawerContainer';
 import EventListContainer from './containers/eventListContainer.js'
 
-function App() {
+
+const App = () => {
   return (
-    <div className='App'>
-      <div className='header'>
-        <MenuIcon />
+    <div 
+      className={css`
+        width: 100%;
+        margin: 0 auto;
+      `}>
+      <div 
+        className={css`
+          display: flex;
+          justify-content: flex-end;
+          margin: 5px;
+        `}
+      >
+        <SideDrawerContainer />
       </div>
       <EventListContainer />
     </div>
