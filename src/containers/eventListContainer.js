@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import EventList from './../components/eventList';
 import { getEndPointData, setEventListData, addBetToCart, removeBetToCart } from './../actions/event-actions';
 

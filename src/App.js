@@ -1,5 +1,5 @@
 import './App.css';
-import { css, cx } from '@emotion/css';
+import { css } from '@emotion/css';
 
 import SideDrawerContainer from './containers/sideDrawerContainer';
 import EventListContainer from './containers/eventListContainer.js'

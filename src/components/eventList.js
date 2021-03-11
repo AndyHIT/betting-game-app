@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { css, cx } from '@emotion/css';
+import { Fragment, useEffect } from 'react';
+import { css } from '@emotion/css';
 
 import BetItem from './betItem';
 
@@ -29,6 +29,7 @@ const EventList = (props) => {
               `}
             >
               <div 
+                key={item.name}
                 className={css`
                   text-align: center;
                   font-size: 16px;
@@ -45,6 +46,7 @@ const EventList = (props) => {
                   `}
                 >
                   <div 
+                    key={game.name}
                     className={css`
                       text-align: left;
                       padding: 10px 0 0 10px;
@@ -54,16 +56,16 @@ const EventList = (props) => {
                     {game.name.split(' ').slice(1).join(' ').toUpperCase()}   {/* Game type, i.e. To Win, To Score First */}
                   </div>
                   <div 
+                    key={`${game.name}-container`}
                     className={css`
                       display: flex;
                       justify-content: space-between;
                     `}
                   >
                     {/* Betting Options component here */}
-                    {game.selections.map(selection => {
-                      return (<>
+                    {game.selections.map(selection => (
+                      <Fragment key={selection.id}>
                         <BetItem 
-                          key={selection.id}
                           selection={selection}
                           addBetToCart={addBetToCart}
                           removeBetToCart={removeBetToCart}
@@ -73,8 +75,8 @@ const EventList = (props) => {
                           cartList={cartList}
                           total={game.selections.length}
                         />
-                      </>)}
-                    )}
+                      </Fragment>
+                    ))}
                   </div>
                 </div>
               )}
