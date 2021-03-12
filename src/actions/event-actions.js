@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { END_POINT } from './../api';
+
+const END_POINT = 'http://www.mocky.io/v2/59f08692310000b4130e9f71';
 
 const SET_EVENT_LIST = 'SET_EVENT_LIST';
 
